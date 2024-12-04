@@ -1,0 +1,18 @@
+{# templates/product/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Fiche produit - {{ product.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="product-card">
+        <h1>{{ product.name }}</h1>
+        <p><strong>Prix :</strong> {{ product.price | number_format(2, ',', ' ') }} €</p>
+        <p><strong>Description :</strong> {{ product.description }}</p>
+        <p><strong>Quantité :</strong> {{ product.quantity }}</p>
+
+        <!-- Bouton pour ajouter au panier -->
+        <button type="button" class="btn btn-primary">Ajouter au panier</button>
+    </div>
+{% endblock %}

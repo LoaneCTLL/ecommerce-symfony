@@ -1,0 +1,128 @@
+/* Définir les couleurs de base */
+:root {
+    --background-color: #ffc9d4;
+    --primary-color: #FFB6C1;
+    --secondary-color: #FFDAB9;
+    --text-color: #333;
+    --border-radius: 15px;
+    --font-family: 'helvetica', cursive, sans-serif;
+}
+.table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 25px 0;
+}
+
+
+
+.logo {
+    width: 100px;  /* Réduit la largeur */
+    height: auto;  /* Ajuste la hauteur automatiquement pour conserver les proportions */
+}
+
+
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.form-control {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+.bigpic {
+    width: 1000px; /* Largeur de l'image */
+    height: auto; /* Garde les proportions */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+
+/* Appliquer les styles de base */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour les titres */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Style pour les paragraphes */
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Style pour les boutons */
+button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    color: rgb(255, 192, 158);
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour les cartes */
+.card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(152, 8, 8, 0.1);
+    margin: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Style pour les liens */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Style pour les icônes */
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+}

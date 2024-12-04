@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Produits{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center; color: #e91e63;">Liste des Produits</h1>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a class="btn" href="{{ path('app_product_new') }}" style="background-color: #e91e63; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+            Ajouter un produit
+        </a>
+    </div>
+
+    {% if produits %}
+        <h3 style="text-align: center; color: #e91e63;">Il y a des produits</h3>
+        <div style="display: flex; justify-content: center;">
+            <table class="table" style="width: 80%; max-width: 900px; border-collapse: collapse; margin: auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                <thead style="background-color: #f8bbd0; color: #e91e63;">
+                    <tr>
+                        <th style="padding: 10px; border-bottom: 1px solid #e91e63;">Id</th>
+                        <th style="padding: 10px; border-bottom: 1px solid #e91e63;">Nom</th>
+                        <th style="padding: 10px; border-bottom: 1px solid #e91e63;">Prix</th>
+                        <th style="padding: 10px; border-bottom: 1px solid #e91e63;">Description</th>
+                        <th style="padding: 10px; border-bottom: 1px solid #e91e63;">Quantités</th>
+                        <th style="padding: 10px; border-bottom: 1px solid #e91e63;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in produits %}
+                        <tr style="background-color: #fce4ec;">
+
+                            <td style="padding: 10px;">{{ produit.id }}</td>
+                            <td style="padding: 10px;">{{ produit.name }}</td>
+                            <td style="padding: 10px;">{{ produit.price | number_format(2, ',', ' ') }} €</td>
+                            <td style="padding: 10px;">{{ produit.description }}</td>
+                            <td style="padding: 10px;">{{ produit.quantity }}</td>
+                            
+                            <td style="padding: 10px;">
+                            {% if produit.category is not null %}
+                                {{ produit.category.name }}
+                                {% else %}
+                                    <em>Aucune catégorie</em>
+                                {% endif %}
+                            </td>
+                            <td style="padding: 10px;">
+                                <!-- Lien vers la fiche produit -->
+                                <a href="{{ path('app_product_show', {'id': produit.id}) }}" title="Voir {{ produit.name }}" style="color: #e91e63;">
+                                    <i class="text-warning" data-feather="file"></i>
+                                </a>
+                                
+                                <!-- Lien pour modifier -->
+                                <a href="{{ path('app_product_edit', {'id': produit.id}) }}" title="Modifier {{ produit.name }}" style="color: #2196f3; margin-left: 10px;">
+                                    <i class="text-info" data-feather="edit"></i>
+                                </a>
+                                <!-- Lien pour supprimer -->
+                                <a href="{{ path('app_product_delete', {'id': produit.id}) }}" 
+                                title="Supprimer {{ produit.name }}" 
+                                style="color: #f44336; margin-left: 10px;" 
+                                onclick="return confirm('Voulez-vous vraiment supprimer ce produit ?');">
+                                    <i class="text-danger" data-feather="trash"></i>
+                                </a>
+                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <h4 style="text-align: center; color: #e91e63;">Il n'y a pas de produits</h4>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+{% endblock %}
